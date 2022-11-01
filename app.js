@@ -49,7 +49,7 @@ const packages = [{
     trackingNumber: 'suz2367'
 }]
 
-function drawPackages() {
+function drawPackages(packages) {
     let packageEle = document.getElementById(`packages`)
     let template = ``
     packages.forEach(package => {
@@ -65,24 +65,26 @@ function drawPackages() {
 
 
 function filterPriority() {
-    template = ''
+    // template = ''
     let priorities = packages.filter(package => package.priorityLevel == 'express')
-    priorities.filter(package => template += `
-    <div class="col-12">To: ${package.to} Priority:${package.priorityLevel}</div>
-    `)
-    document.getElementById('packages').innerHTML = template
+    drawPackages(priorities)
+    // priorities.filter(package => template += `
+    // <div class="col-12">To: ${package.to} Priority:${package.priorityLevel}</div>
+    // `)
+    // document.getElementById('packages').innerHTML = template
 }
 
 function filterWeight() {
-    template = ''
+    // template = ''
     let weights = packages.filter(package => package.weight >= 5)
-    weights.filter(package => template += `
-    <div class="col-12">To: ${package.to} weight:${package.weight}</div>
-    `)
-    document.getElementById('packages').innerHTML = template
+    drawPackages
+    // weights.filter(package => template += `
+    // <div class="col-12">To: ${package.to} weight:${package.weight}</div>
+    // `)
+    // document.getElementById('packages').innerHTML = template
 }
 
-function drawAllPackages(packages) {
+function drawAllPackages() {
     drawPackages(packages)
 }
 
